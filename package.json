@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Base node app  in typescript with jest, eslint and prettier.",
   "scripts": {
-    "local": "dotenv-run-script .env.local --",
+    "local": "dotenv-run-script .env --",
     "test": "jest",
     "check": "tsc --noEmit && npm run lint && prettier --check \"**/*.{ts,json,md,cjs}\"",
     "lint": "tsc --noEmit && eslint . --ext .ts",
     "format": "prettier --write",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "start": "npm run local dev"
   },
   "engines": {
     "node": ">= 16",
