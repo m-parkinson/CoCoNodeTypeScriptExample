@@ -147,7 +147,7 @@ async function addShippingMethodToCart(credentials: Credentials, cartId: string,
               action: "setShippingMethod",
               shippingMethod: {
                 typeId: "shipping-method",
-                id: (await getShippingMethodsForACart(credentials, cartId))[0].id
+                id: (await getShippingMethodsForACart(credentials, cartId))[1].id
               }
             }
           ]
@@ -267,6 +267,7 @@ async function main() {
   await addShippingAddressToCart(credentials, cartId, cartDetails.version);
 
   cartDetails = await getCartById(credentials, cartId);
+  // Every time there is an update i want to get the version of the cart but i am not sure if it is the right way to do it, would a counter be better???🤔
   await addBillingAddressToCart(credentials, cartId, cartDetails.version);
 
   cartDetails = await getCartById(credentials, cartId);
